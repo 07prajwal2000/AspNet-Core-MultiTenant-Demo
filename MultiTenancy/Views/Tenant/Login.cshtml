@@ -1,0 +1,15 @@
+﻿@model MultiTenancy.Entities.Tenant
+
+@{
+}
+
+<form class="w-50 mx-auto my-4 border border-2 border-success d-flex flex-column gap-3 rounded-3 p-4" asp-action="Login" method="post">
+
+    <h2 class="text-center">Login to @Model.Name</h2>
+    
+    <input name="Email" placeholder="Email" class="form-control" type="email" />
+    <input name="Password" placeholder="Password" class="form-control" type="password" />
+
+    <button class="btn btn-success mx-auto px-4" type="submit">Login</button>
+
+</form>

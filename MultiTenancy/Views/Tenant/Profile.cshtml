@@ -1,0 +1,40 @@
+﻿@using MultiTenancy.Models.Tenant;
+
+@model TenantViewModel
+
+@{
+}
+
+<h2>Hi @Model.User.Name, </h2>
+
+<h1>Welcome to @Model.Tenant.Name</h1>
+
+<div class="row">
+    <div class="col-8 border border-2 rounded-3 border-dark p-4 w-50">
+        <h4>Email - @Model.User.Email</h4>
+        <h4>Password - @Model.User.Password</h4>
+        @if (Model.User.IsAdmin)
+        {
+            <h4 class="text-success">✅ You are admin </h4>
+        }
+        <a asp-action="Logout" asp-controller="@Model.Tenant.Name" class="btn btn-outline-danger">Logout</a>
+    </div>
+    @if (Model.User.IsAdmin)
+    {
+    <div class="col-4 mx-2 border border-primary overflow-auto" style="max-height: 700px;">
+            <div class="row my-2">
+                <h2 class="col-7 text-center text-decoration-underline">Users</h2>
+                <a asp-action="AddUser" asp-controller="@Model.Tenant.Name" class="btn btn-outline-success col-4">Add Users</a>
+            </div>
+            <ul>
+                @foreach (var u in Model.UserAccounts)
+                {
+                    <li>
+                        <h4>@u.Name</h4>
+                        <p>Roles - @u.Roles</p>
+                    </li>
+                }
+            </ul>
+    </div>
+    }
+</div>

@@ -1,0 +1,13 @@
+﻿@model string
+@{
+}
+
+<form class="w-50 mx-auto my-4 border border-2 border-success d-flex flex-column gap-3 rounded-3 p-4" asp-action="AddUser" asp-controller="@Model" method="post">
+    <h2>Add User to @Model</h2>
+    <input name="Name" placeholder="Name" class="form-control" />
+    <input name="Email" placeholder="Email" class="form-control" type="email" />
+    <input name="Password" placeholder="Password" class="form-control" type="password" />
+    <input name="Roles" placeholder="Roles separated by comma" class="form-control" type="text" />
+
+    <button class="btn btn-success" type="submit">Add</button>
+</form>

@@ -1,0 +1,22 @@
+﻿@page "/Signup"
+@using MultiTenancy.Entities;
+
+<form class="w-50 mx-auto my-4 border border-2 border-success d-flex flex-column gap-3 rounded-3 p-4" asp-action="Signup" asp-controller="BaseAuth" method="post">
+    <h2>Sign up</h2>
+    <input name="Name" placeholder="Name" class="form-control" />
+    <input name="Email" placeholder="Email" class="form-control" type="email" />
+    <input name="Password" placeholder="Password" class="form-control" type="password" />
+
+    <label for="subtype">
+        Subscription Type
+        <select id="subtype" name="SubscriptionType">
+            @foreach (var val in Enum.GetNames<SubscriptionType>())
+            {
+                <option value="@val">@val</option>
+            }
+        </select>
+    </label>
+
+    <input name="TenantName" placeholder="Your company name" class="form-control" type="text" />
+    <button class="btn btn-success" type="submit">Signup</button>
+</form>
